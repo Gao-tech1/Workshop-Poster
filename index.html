@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4th Workshop on Intelligent Vehicle Meets Urban (IV-URBAN 2025) - Landscape</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /*
+         * ===============================================
+         * Page and Print Layout Setup - A3 LANDSCAPE
+         * ===============================================
+         */
+            @media screen {
+            body {
+                background-color: #fff; /* White background for screen */
+                margin: 0;
+                padding: 2rem 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .poster-container {
+                
+                 width: 90%; /* width is 90% of the body */
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+        }
+        
+        /*
+         * ===============================================
+         * Main Container & Font Styles
+         * ===============================================
+         */
+        .poster-container {
+            background: white;
+            color: #1a202c;
+            /* This display:grid ensures both columns are always equal height */
+            display: grid;
+            grid-template-columns: 520px 1fr;
+        }
+
+        h1, h2, h3, .role, .name {
+             font-family: 'Montserrat', sans-serif;
+        }
+
+        /*
+         * ===============================================
+         * Left Column (Blue Area)
+         * ===============================================
+         */
+        .left-column {
+            background: linear-gradient(180deg, #003366, #023e8a, #0077b6);
+            color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        .left-column h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-top: 1rem;
+        }
+        .left-column .subtitle {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            border-left: 3px solid #0096c7;
+            padding-left: 1rem;
+            opacity: 0.9;
+        }
+       
+        .title-container { position: relative; padding-right: 100px; }
+        .logo-badge{
+          position:absolute; top:0; right:0;
+          background:#fff;
+          padding:10px 12px;
+          border-radius:12px;
+          box-shadow:0 10px 18px rgba(0,0,0,.25);
+        }
+        .header-logo{ display:block; height:90px; width:auto; }
+
+        /* Print: keep contrast without a heavy shadow */
+        @media print{
+          .logo-badge{ box-shadow:none; border:0px solid #e5e7eb; }
+        }
+
+        .date-time-highlight {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #ade8f4;
+  padding: 10px 15px;
+  margin-top: 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+
+  display: flex;              /* add */
+  align-items: center;        /* add */
+  gap: 12px;                  /* add */
+}
+
+.date-time-highlight .dth-text {
+  flex: 1;                    /* text takes remaining space */
+}
+
+.date-time-highlight .dth-qr {
+  flex: 0 0 auto;
+  width: 96px;                /* adjust as needed */
+  height: 96px;
+  object-fit: contain;
+  margin-left: auto;          /* pushes QR to the right */
+  display: block;
+}
+
+/* Optional: stack on very small screens */
+@media (max-width: 480px) {
+  .date-time-highlight { flex-direction: column; align-items: flex-start; }
+  .date-time-highlight .dth-qr { margin-left: 0; }
+}
+        .left-column h2 {
+            font-size: 1.5rem;
+            margin-top: 1.85rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #0096c7;
+            padding-bottom: 0.5rem;
+            color: white;
+        }
+        .overview-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        .overview-text b { color: #ade8f4; font-weight: 500; }
+        
+        .organizer-section { margin-top: auto; } /* Pushes to bottom */
+
+        .organizer-host-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 0.5rem;
+            display: flex; align-items: center; gap: 1rem;
+            margin-top: 1rem;
+        }
+        .organizer-host-card img { width: 60px; height: 60px; border-radius: 50%; }
+        .organizer-host-card .role { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: #ade8f4; }
+        .organizer-host-card .name { font-size: 1.rem; font-weight: 700; }
+
+        .organizer-grid {
+             display: grid; grid-template-columns: repeat(4, 1fr);
+             gap: 0.8rem; margin-top: 1rem;
+        }
+        .organizer-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+        .organizer-card img {
+          width: 50px; height: 50px; aspect-ratio: 1/1;
+          border-radius: 50%; object-fit: cover; margin: 0 auto;
+        }
+
+        /* Reserve the same vertical space for names (2 lines) so affiliations align */
+        .organizer-card .name {
+          margin-top: 0.4rem;
+          font-weight: 400;
+          font-size: 0.9rem;
+          line-height: 1.2;
+          min-height: 2.4em;              /* ≈ 2 lines @ 1.2 line-height */
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;           /* clamp to 2 lines */
+          overflow: hidden;
+        }
+
+        .organizer-card .affil {
+          margin-top: 0.0rem;
+          font-size: 0.85rem;
+          opacity: 0.8;
+        }
+
+        
+        /*
+         * ===============================================
+         * Right Column (White Area)
+         * ===============================================
+         */
+        .right-column {
+            padding: 30px;
+            overflow-y: visible; /*auto*/
+        }
+        .right-column h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #023e8a;
+            margin-top: 0;
+            margin-bottom: 0.3rem;
+        }
+        
+        .speaker-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .speaker-card { text-align: center; }
+        .speaker-card img { width: 150px; height: 150px; border-radius: 50%; margin: 0 auto; object-fit: cover; border: 4px solid #e2e8f0; }
+        .speaker-card .name { font-weight: 600; margin-top: 0.5rem; font-size: 1rem; }
+        .speaker-card .affiliation { font-size: 0.8rem; color: #4a5568; }
+        .agenda-table { width: 100%; font-size: 1.02rem; border-collapse: collapse; }
+        .agenda-table th, .agenda-table td { padding: 0.235rem; text-align: left; border-bottom: 1px solid #e2e8f0; vertical-align: middle; }
+        .agenda-table th { background-color: #edf2f7; font-weight: 600; color: #023e8a; }
+        .session-title { font-weight: 600; color: #0077b6; }
+        .contact-info {
+            font-size: 1rem; line-height: 1.4; margin-top: 0.5rem; text-align: center;
+        }
+        .date-time-highlight .cta{
+          margin-top: 3px;
+          font-size: 1.2rem;
+          text-align: center;    /* centers it */
+          font-weight: 700;      /* bold */
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="left-column">
+            <div>
+                <!-- <img src="ITSClogo.png" alt="ITSC 2025 Logo" class="header-logo"> -->
+                <!-- <h1>4th Workshop on Intelligent Vehicle Meets Urban</h1> -->
+                <div class="title-container"> 
+                    <h1>4th Workshop on Intelligent Vehicle Meets Urban</h1>
+                    <div class="logo-badge">
+                        <img src="ITSClogo.png" alt="ITSC 2025 Logo" class="header-logo">
+                    </div>
+                </div>
+                <p class="subtitle">Safe And Certifiable Navigation And Control for Intelligent Vehicles In Complex Urban Scenarios</p>
+                <div class="date-time-highlight">
+                    <div class="dth-text">
+                    <b>Date:</b> Tuesday, 18 November 2025 (UTC+10)<br>
+                    <b>Website:</b>
+                    <a href="https://tinyurl.com/ivurban"
+                       target="_blank" rel="noopener noreferrer" title="Open IV-URBAN 2025 website">
+                      https://tinyurl.com/ivurban
+                    </a><br>
+                    <b>Venue:</b> IEEE ITSC 2025, Gold Coast, Australia <br>
+                    <b>Zoom Webinar:</b> 843 0148 5732 <b> Code:</b> 037524 <br>
+                    <div class="cta">Join Us Online — All Welcome!</div>
+                    </div>
+                    <img class="dth-qr" src="ivurban2025itsc_qr.png" alt="QR code">
+                </div>
+            </div>
+            <div>
+                <h2>Workshop Overview</h2>
+                <p class="overview-text text-justify">
+                    Intelligent Vehicles (IVs) are central to improving traffic efficiency and enabling smart cities. Despite strong progress, performance in dense, complex urban settings remains challenging.
+                </p>
+                <p class="overview-text text-justify">
+                   This workshop advances <b>safety-certifiable navigation and controls</b> to close these gaps and ensure reliable IV operation in real-world cities.
+                </p>
+            </div>
+
+            <div class="organizer-section">
+                <h2>Organizing Committee</h2>
+                <div class="organizer-host-card">
+                    <img src="WW.png" alt="Host: Prof. Weisong Wen">
+                    <div>
+                        <p class="role">Host</p>
+                        <p class="name">Prof. Weisong Wen</p>
+                        <p>Hong Kong Polytechnic University (PolyU)</p>
+                    </div>
+                </div>
+                 <div class="organizer-grid">
+                    <div class="organizer-card" role="listitem">
+                        <img src="Daniel.png" alt="Dr. Daniel Arias Medina — DLR" loading="lazy" width="50" height="50">
+                        <p class="name">Dr. Daniel Arias Medina</p>
+                        <p class="affil">DLR</p>
+                    </div>
+                    <div class="organizer-card" role="listitem">
+                        <img src="Pfeifer.png" alt="Dr. Tim Pfeifer — Siemens AG" loading="lazy" width="50" height="50">
+                        <p class="name">Dr. Tim Pfeifer</p>
+                        <p class="affil">Siemens AG</p>
+                      </div>
+
+                      <div class="organizer-card" role="listitem">
+                        <img src="ZC.png" alt="Dr. Chen Zhuang — Beihang University" loading="lazy" width="50" height="50">
+                        <p class="name">Dr. Chen Zhuang</p>
+                        <p class="affil">Beihang Univ.</p>
+                      </div>
+
+                      <div class="organizer-card" role="listitem">
+                        <img src="WYZ.png" alt="Prof. Yuanzhe Wang — Shandong University" loading="lazy" width="50" height="50">
+                        <p class="name">Prof. Yuanzhe Wang</p>
+                        <p class="affil">Shandong Univ.</p>
+                      </div>
+
+                      <div class="organizer-card" role="listitem">
+                        <img src="ZHM.jpg" alt="Dr. Haoming Zhang — TU Munich" loading="lazy" width="50" height="50">
+                        <p class="name">Dr. Haoming Zhang</p>
+                        <p class="affil">TU Munich</p>
+                      </div>
+
+                      <div class="organizer-card" role="listitem">
+                        <img src="GYX.jpg" alt="Ms. Yixin Gao" loading="lazy" width="50" height="50">
+                        <p class="name">Ms. Yixin Gao</p>
+                        <p class="affil">PolyU</p>
+                      </div>
+
+                      <div class="organizer-card" role="listitem">
+                        <img src="BXW.png" alt="Dr. Xiwei Bai" loading="lazy" width="50" height="50">
+                        <p class="name">Dr. Xiwei Bai</p>
+                        <p class="affil">PolyU</p>
+                      </div>
+
+                      <div class="organizer-card" role="listitem">
+                        <img src="HF.jpg" alt="Dr. Feng Huang" loading="lazy" width="50" height="50">
+                        <p class="name">Dr. Feng Huang</p>
+                        <p class="affil">PolyU</p>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <section>
+                <h2>Invited Speakers</h2>
+                <div class="speaker-grid">
+                    <div class="speaker-card"><img src="LT.png" alt="Prof. Li-Ta Hsu"><p class="name">Prof. Li-Ta Hsu</p><p class="affiliation">Hong Kong Polytechnic University</p></div>
+                    <div class="speaker-card"><img src="Barfoot2.png" alt="Prof. Timothy D Barfoot"><p class="name">Prof. Timothy D Barfoot</p><p class="affiliation">University of Toronto</p></div>
+                    <div class="speaker-card"><img src="ZF.png" alt="Prof. Fu Zhang"><p class="name">Prof. Fu Zhang</p><p class="affiliation">Hong Kong University</p></div>
+                    <div class="speaker-card"><img src="ZY.png" alt="Prof. Yi Zhou"><p class="name">Prof. Yi Zhou</p><p class="affiliation">Hunan University</p></div>
+                    <div class="speaker-card"><img src="MS.png" alt="Dr. Mao Shan"><p class="name">Dr. Mao Shan</p><p class="affiliation">University of Sydney</p></div>
+                    <div class="speaker-card"><img src="Kousik.png" alt="Prof. Shreyas Kousik"><p class="name">Prof. Shreyas Kousik</p><p class="affiliation">Georgia Institute of Technology</p></div>
+                    <!--<div class="speaker-card"><img src="BY.png" alt="Dr. Boyang Li"><p class="name">Dr. Boyang Li</p><p class="affiliation">U of Newcastle</p></div>-->
+                </div>
+            </section>
+            <section style="margin-top:1.5rem;">
+                <h2>Program</h2>
+                <table class="agenda-table">
+                    <thead>
+                        <tr><th style="width:18%;">Time*</th><th style="width:25%;">Speaker</th><th>Topic / Title</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>08:00-08:25</td><td></td><td class="session-title">Get Together</td><td>
+                        <tr><td>08:25-08:30</td><td>Prof. Weisong Wen</td><td class="session-title">Opening Remark</td></tr>
+                        <tr><td>08:30-09:00</td><td>Prof. Li-Ta Hsu**</td><td>Urban GNSS RTK/INS Integrated System for Post-processing Applications</td></tr>
+                        <tr><td>09:00-09:30</td><td>Prof. Timothy D. Barfoot**</td><td>Can We Navigate Reliably Using Radar?</td></tr>
+                        <tr><td>09:30-10:00</td><td>Prof. Fu Zhang**</td><td>Efficient and Robust LiDAR-centric Localization for Autonomous Drones</td></tr>
+                        <tr><td>10:00-10:30</td><td></td><td class="session-title" colspan="2">Short Break</td></tr>
+                        <tr><td>10:30-11:00</td><td>Prof. Yi Zhou</td><td>Advancing Autonomous Vehicles with Neuromorphic Event-based Vision</td></tr>
+                        <tr><td>11:00-11:30</td><td>Dr. Mao Shan</td><td>Implementing a Connected and Automated Vehicle Trial in Australian Urban Traffic: Key Learnings</td></tr>
+                        <tr><td>11:30-12:00</td><td>Prof. Shreyas Kousik**</td><td>Enabling Both Safety and Performance for Difficult Dynamics</td></tr>
+                        <tr><td>12:00-12:15</td><td></td><td class="session-title" colspan="2">Open Discussion & Closing</td></tr>
+                        <tr><td>12:15-12:30</td><td></td><td class="session-title" colspan="2">Poster Session</td></tr>
+                    </tbody>
+                </table>
+                <p class="text-xs mt-2 text-gray-500">*Times are UTC+10 | **Virtual Presentation.</p>
+            </section>
+ 	     <div class="contact-info">
+                 <b>Contact:</b> Dr. Feng HUANG | darren-f.huang@connect.polyu.hk
+            </div>
+	
+        </div>
+    </div>
+</body>
+</html>
